@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+## Run blt setup commands to prepare your local site for
+## development.
+##
+## Usage: fin init
+
+fin blt blt:init:settings
+fin blt drupal:install
