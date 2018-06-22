@@ -34,8 +34,8 @@ modules:
     uninstall: [devel, views_ui]
 drupal:
   db:
-  database: default
-  username: user
-  password: user
-  host: db
-  port: 3306
+    database: default
+    username: user
+    password: user
+    host: db
+    port: 3306
