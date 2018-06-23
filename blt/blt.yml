@@ -6,7 +6,7 @@ project:
     name: lightning
   local:
     protocol: http
-    hostname: '${project.machine_name}.docksal'
+    hostname: '${env.VIRTUAL_HOST}'
 git:
   default_branch: master
   remotes: {  }
