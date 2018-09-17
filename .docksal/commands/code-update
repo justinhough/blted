@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+#: exec_target = cli
+
+## Update composer install requirements
+##
+## Usage: fin code-update
+
+# Abort if anything fails
+set -e
+
+cd "${PROJECT_ROOT}/${DOCROOT}"
+composer update acquia/blt --with-all-dependencies
+composer update acquia/lightning --with-all-dependencies
+drush cr
+drush updatedb -y
+drush cr
+drush update:lightning
+drush cex -y
+composer update drupal/* --with-all-dependencies
+drush cr
+drush updatedb -y
+drush cex -y
