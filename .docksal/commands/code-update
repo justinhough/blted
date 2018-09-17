@@ -9,15 +9,21 @@
 # Abort if anything fails
 set -e
 
-cd "${PROJECT_ROOT}/${DOCROOT}"
+composer clear-cache
+COMPOSER_PROCESS_TIMEOUT=2000
+composer install
+cd "${PROJECT_ROOT}"
 composer update acquia/blt --with-all-dependencies
 composer update acquia/lightning --with-all-dependencies
+cd "${PROJECT_ROOT}/${DOCROOT}"
 drush cr
 drush updatedb -y
 drush cr
 drush update:lightning
 drush cex -y
+cd "${PROJECT_ROOT}"
 composer update drupal/* --with-all-dependencies
+cd "${PROJECT_ROOT}/${DOCROOT}"
 drush cr
 drush updatedb -y
 drush cex -y
