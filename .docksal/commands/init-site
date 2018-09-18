@@ -49,7 +49,7 @@ echo -e "${green} Starting installation...${NC}"
 # Project initialization steps
 fix_permissions
 fin blt blt:init:settings
-fin blt drupal:install -y
+fin blt drupal:install -n
 
 
 echo -en "${green_bg} DONE! ${NC} "
