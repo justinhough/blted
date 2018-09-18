@@ -10,6 +10,8 @@ project:
 git:
   default_branch: master
   remotes: {  }
+deploy:
+  tag_source: true
 drush:
   aliases:
     remote: '${project.machine_name}.test'

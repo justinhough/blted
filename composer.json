@@ -45,7 +45,7 @@
                 "type:bower-asset",
                 "type:npm-asset"
             ],
-            "drush/contrib/{$name}": [
+            "drush/Commands/{$name}": [
                 "type:drupal-drush"
             ]
         },
