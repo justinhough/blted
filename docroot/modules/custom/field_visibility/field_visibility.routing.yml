@@ -1,0 +1,19 @@
+
+field_visibility.field_visibility_controller_selectTypes:
+  path: '/admin/structure/field-visibility'
+  defaults:
+    _controller: '\Drupal\field_visibility\Controller\FieldVisibilityController::selectTypes'
+    _title: 'Field Visibility'
+  requirements:
+    _permission: 'edit field visibility'
+
+field_visibility.field_visibility_settings:
+  path: '/admin/structure/field-visibility/{content_type}'
+  defaults:
+    _form: '\Drupal\field_visibility\Form\FieldVisibilitySettings'
+    _title: 'Field Visibility Settings'
+  requirements:
+    _permission: 'edit field visibility'
+  options:
+    _admin_route: TRUE
+

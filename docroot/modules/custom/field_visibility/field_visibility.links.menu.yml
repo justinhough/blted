@@ -1,0 +1,7 @@
+field_visibility.field_visibility_controller_selectTypes:
+  title: 'Field Visibility'
+  route_name: field_visibility.field_visibility_controller_selectTypes
+  description: 'Show/Hide fields on node edit forms.'
+  parent: system.admin_structure
+  weight: 99
+
