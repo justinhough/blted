@@ -9,6 +9,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Entity\EntityFieldManagerInterface;
 use Drupal\Core\Entity\EntityManagerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Entity;
+use Drupal\field\FieldConfigInterface;
 
 /**
  * Class FieldVisibilitySettings.
@@ -73,16 +75,37 @@ class FieldVisibilitySettings extends ConfigFormBase {
     return 'field_visibility_settings';
   }
 
+  private function getNodeFields($content_type) {
+    $fields = [];
+
+    if (!empty($contentType)) {
+      $fields[] = $this->entityFieldManager->getFieldStorageDefinitions($contentType);
+      /*$fields = array_filter(
+        $this->entityFieldManager->getFieldStorageDefinitions($contentType), function ($field_definition) {
+          return $field_definition instanceof FieldConfigInterface;
+        }
+      );*/
+    }
+
+    return $fields;
+  }
+
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state) {
+  public function buildForm(array $form, FormStateInterface $form_state, $content_type = NULL) {
+    $x=2;
+    $fields = $this->getNodeFields($content_type);
     $config = $this->config('field_visibility.fieldvisibilitysettings');
     $form['field_name'] = [
       '#type' => 'checkboxes',
       '#title' => $this->t('Field'),
       '#options' => ['1' => $this->t('1'), '2' => $this->t('2'), '3' => $this->t('3')],
-      '#default_value' => $config->get('field_name'),
+      '#default_value' => $config->get('field_name') ?: [1,2],
+    ];
+    $x=1;
+    $form['output'] = [
+      '#markup' => 'content type: ' . $content_type . '<br>Fields: ' . implode("<br>", $fields),
     ];
     return parent::buildForm($form, $form_state);
   }
