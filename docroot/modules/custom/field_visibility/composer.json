@@ -1,0 +1,14 @@
+{
+  "name": "drupal/field_visibility",
+  "type": "drupal-module",
+  "description": "Provides a UI for editing role level visibility of fields in Node edit forms.",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/field_visibility",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/field_visibility",
+    "source": "http://cgit.drupalcode.org/field_visibility"
+  },
+  "require": { }
+}

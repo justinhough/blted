@@ -1,0 +1,5 @@
+name: 'field_visibility'
+type: module
+description: 'Provides a UI for editing role level visibility of fields in Node edit forms.'
+core: 8.x
+package: 'Node'

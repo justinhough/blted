@@ -1,0 +1,8 @@
+
+edit field visibility:
+  title: 'Edit Field Visibility'
+  description: 'Access the Field Visibility module'
+  restrict access: TRUE
+see hidden form fields:
+  title: 'See Hidden Form Fields'
+  description: 'Allows users to see form fields that have been hidden.'
