@@ -7,6 +7,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\node\Entity\NodeType;
 use Drupal\Core\Url;
+use Drupal\Core\Link;
 
 /**
  * Class FieldVisibilityController.
@@ -47,16 +48,19 @@ class FieldVisibilityController extends ControllerBase {
     $content_types = NodeType::loadMultiple();
     $types = [];
 
-    $output = '<h1>Node Field Visibility Settings - Select Content Type</h1>';
     foreach ($content_types as $mach_name => $type) {
-      $url = Url::fromRoute();
-      $types[] = array(l($type->name, "/admin/structure/field_visibility/$mach_name"));// TODO: create form and route
+      $url = Url::fromRoute('field_visibility.field_visibility_settings', ['content_type' => $mach_name]);
+      $types[] = [Link::fromTextAndUrl($type->get('name'), $url)->toString()];
     }
-
-    return [
-      '#type' => 'markup',
-      '#markup' => $this->t('Implement method: hello')
+    $build["header"] = array(
+      "#markup" => "<h1>Node Field Visibility Settings - Select Content Type</h1>",
+    );
+    $build['table'] = [
+      '#type' => 'table',
+      '#rows' => $types,
     ];
+
+    return $build;
   }
 
 }
