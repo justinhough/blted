@@ -57,3 +57,6 @@ BLT uses a number of configuration (.yml or .json) files to define and customize
 * [BLT GitHub](https://github.com/acquia/blt)
 * [Docksal Documentation](http://docs.docksal.io)
 * [Docksal GitHub](https://github.com/docksal/docksal)
+
+
+**BLT v9.2.3**
