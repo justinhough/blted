@@ -23,7 +23,7 @@ drush cr
 drush update:lightning
 drush cex -y
 cd "${PROJECT_ROOT}"
-composer update drupal/* --with-all-dependencies
+composer update drupal/core webflo/drupal-core-require-dev symfony/* --with-dependencies
 cd "${PROJECT_ROOT}/${DOCROOT}"
 drush cr
 drush updatedb -y
